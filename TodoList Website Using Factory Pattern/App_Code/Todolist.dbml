@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TodoList" Class="TodolistDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\TodoList.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TodoListConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TodoList_UserLists" Member="TodoList_UserLists">
+    <Type Name="TodoList_UserList">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmailID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreation" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsArchive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TodoList_UsersDetails" Member="TodoList_UsersDetails">
+    <Type Name="TodoList_UsersDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Pwd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityAnswer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DeActivate" Method="DeActivate">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteUserList" Method="DeleteUserList">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetArchive" Method="GetArchive">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetArchiveResult">
+      <Column Name="Title" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreation" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetUserLists" Method="GetUserLists">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetUserListsResult">
+      <Column Name="Title" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreation" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetUserMailIds" Method="GetUserMailIds">
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetUserMailIdsResult">
+      <Column Name="EmailID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertNewUser" Method="InsertNewUser">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pwd" Parameter="pwd" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SecurityQuestion" Parameter="securityQuestion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SecurityAnswer" Parameter="securityAnswer" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Zipcode" Parameter="zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="country" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertUserLists" Method="InsertUserLists">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DateOfCreation" Parameter="dateOfCreation" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsArchive" Parameter="isArchive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReActivate" Method="ReActivate">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SendToArchiveUserList" Method="SendToArchiveUserList">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsArchive" Parameter="isArchive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UnArchive" Method="UnArchive">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsArchive" Parameter="isArchive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateList" Method="UpdateList">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TitleOld" Parameter="titleOld" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TitleNew" Parameter="titleNew" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DateOfCreation" Parameter="dateOfCreation" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UserValidate" Method="UserValidate">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pwd" Parameter="pwd" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="UserValidateResult">
+      <Column Name="pwd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetUserDetails" Method="GetUserDetails">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetUserDetailsResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pwd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityAnswer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IsAvailable" Method="IsAvailable">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="IsAvailableResult">
+      <Column Name="EmailID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DeleteCompleteLists" Method="DeleteCompleteLists">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteUser" Method="DeleteUser">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetSecurityQn" Method="GetSecurityQn">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetSecurityQnResult">
+      <Column Name="SecurityQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSecurityAns" Method="GetSecurityAns">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetSecurityAnsResult">
+      <Column Name="SecurityAnswer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UserValidateInActive" Method="UserValidateInActive">
+    <Parameter Name="EmailID" Parameter="emailID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pwd" Parameter="pwd" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="UserValidateInActiveResult">
+      <Column Name="pwd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UserValidForgotPwd" Method="UserValidForgotPwd">
+    <Parameter Name="EmailId" Parameter="emailId" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="UserValidForgotPwdResult">
+      <Column Name="EmailID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/WelcomePage.aspx" title="WelcomePage"  >
+
+    <siteMapNode url="~/LogedInUser/UserTodoListLand.aspx" title="TodoListPage" />
+
+    <siteMapNode url="~/LogedInUser/UserTodoArchive.aspx" title="Archives"   />
+
+    
+  </siteMapNode>
+
+</siteMap>

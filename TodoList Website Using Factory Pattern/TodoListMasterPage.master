@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="TodoListMasterPage.master.cs" Inherits="TodoListMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <script type="text/javascript">
+        function disableBackButton() {
+            window.history.forward();
+        }
+        setTimeout("disableBackButton()", 0);
+    </script>
+
+
+
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+
+        .auto-style2 {
+            width: 143px;
+            height:200px;
+        }
+
+        .auto-style3 {
+            font-size: x-large;
+        }
+
+       
+        .auto-style6 {
+            width: 214px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <form id="form1" runat="server" style="height:100vh">
+
+
+        <table
+            style="width: 100%; overflow:hidden; border-collapse:collapse;height:auto; " >
+
+            <tr style="background-color: #FF8C55; border-color: #FF8C55;"  class="head">
+                <td colspan="4" style="background-color: #FF8C55; border-color: #FF8C55;">
+                    <%--<asp:Label ID="Test" runat="server" Style="text-align: right; ali"></asp:Label>--%>
+                    <div class="auto-style1" >
+                        <center><strong><span>ONLINE TODO LIST MANAGER</span></strong></center> 
+                    </div>
+                    <div style="width: 100%; border-color: #FF8C55;">
+                        <table>
+                            <tr>
+                                <td "><strong>Date:</strong><%= DateTime.Now.ToString("dddd, MMMM dd")%></td>
+                                
+                                <td " class="auto-style6"><strong>Time:</strong>
+
+                        <asp:Label ID="TimerLabel" runat="server" Text="Label" Style="text-align: right"></asp:Label></td>
+                            </tr>
+                        </table>
+                          
+                    </div>
+
+                    <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+
+
+
+            <tr>
+
+                <td style="background-color: #FF8C55; border-color: #FF8C55; border-bottom-color: #FF8C55; " class="leftPanel" colspan="2">
+                    
+                    <table>
+                        <tr style="vertical-align:top; height:30%">
+                            <td style="vertical-align:top">
+                                
+                            <div style="vertical-align:top;">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                                    Left Panel 
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                            </td>
+                        </tr>
+
+<%--                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="ContentLeft1" runat="server"></asp:ContentPlaceHolder>
+                            </td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td>
+                                
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder5" runat="server"></asp:ContentPlaceHolder>
+                            
+                            </td>
+                        </tr>--%>
+                    </table>
+                </td>
+
+                <td colspan="4" class="body">
+                    <div style="height:80vh;">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder4" runat="server">
+
+                            <center>Hello body</center>
+
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+
+          
+            <tr>
+                <td colspan="4" style=" background-color: #FF8C55; " class="footer">
+                    <div class="auto-style1">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                            Copyrights
+                &#169 Online TodoList Manager
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+    </form>
+</body>
+</html>

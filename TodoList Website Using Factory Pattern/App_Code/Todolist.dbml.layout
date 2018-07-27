@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Todolist">
+  <DataContextMoniker Name="/TodolistDataContext" />
+  <nestedChildShapes>
+    <classShape Id="36e1465b-5466-4a46-8486-76d8a6ccc55c" absoluteBounds="2.5, 1.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TodolistDataContext/TodoList_UserList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4c523f3-3bf8-488a-aff3-b10f70651040" absoluteBounds="2.515, 1.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="06194ca2-ea4f-4e86-9f83-dfa46ad1b1ad" absoluteBounds="3.125, 4.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TodolistDataContext/TodoList_UsersDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="511e15a3-6856-4572-914b-2581bd56ba0f" absoluteBounds="3.14, 4.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
